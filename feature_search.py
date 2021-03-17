@@ -24,7 +24,7 @@ def feature_search(data):
                 trace.write(f'\t--Considering adding feature {k}\n')
                 trace.close()
 
-                accuracy = leave_one_out_cross_validation(data, current_set_of_features, k) # Temporary stub function
+                accuracy = leave_one_out_cross_validation(data, current_set_of_features, k)
 
                 if accuracy > best_so_far_accuracy:
                     best_so_far_accuracy = accuracy
@@ -44,7 +44,7 @@ def feature_search(data):
     print(f'Finished search!! The best feature subset is {max(all_set_of_features)[1]}, which has an accuracy of {max(all_set_of_features)[0] * 100}%')
 
     trace = open('trace.txt', 'a')
-    trace.write(f'Finished search!! The best feature subset is {max(all_set_of_features)[1]}, which has an accuracy of {max(all_set_of_features)[0] * 100}%')
+    trace.write(f'Finished search!! The best feature subset is {max(all_set_of_features)[1]}, which has an accuracy of {max(all_set_of_features)[0] * 100}%\n')
     trace.close()
 
 def leave_one_out_cross_validation(data, currentFeatureSet, featureToAdd):
