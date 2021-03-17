@@ -45,7 +45,7 @@ def main():
 
     print('Beginning search.\n')
     start = timeit.default_timer()
-    feature_search(testSet)
+    feature_search(testSet, int(algorithmSelection))
     stop = timeit.default_timer()
 
     finalExecutionTime = stop - start
