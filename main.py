@@ -1,9 +1,16 @@
 from feature_search import feature_search
-from feature_search import leave_one_out_cross_validation
 
 def main():
+    # Setup trace
+    open('trace.txt', 'w').close()
+    trace = open('trace.txt', 'a')
+    # End of trace setup
+
     print("Welcome to Renzo's Feature Selection Algorithm.")
     testFileName = input('Type in the name of the file to test: ')
+
+    trace.write("Welcome to Renzo's Feature Selection Algorithm.\n")
+    trace.write(f'Type in the name of the file to test: {testFileName}')
 
     # Load data
     rawData = open(testFileName, 'r')
@@ -17,18 +24,20 @@ def main():
 
     rawData.close()
     # End of data load
+
+    print('\nType the number of the algorithm you want to run.')
+    print('\t 1) Forward Selection')
+    print('\t 2) Backward Elimination')
+
+    algorithmSelection = input('')
+
     print(f'\nThis dataset has {numberOfFeatures} features (not including the class attribute), with {numberOfInstances} instances\n')
 
+    trace.write(f'{algorithmSelection}\n')
+    trace.write(f'\nThis dataset has {numberOfFeatures} features (not including the class attribute), with {numberOfInstances} instances\n\n')
+    trace.close()
+
     feature_search(testSet)
-    # leave_one_out_cross_validation(testSet, [], [])
-
-    # print('\nType the number of the algorithm you want to run.')
-    # print('\t 1) Forward Selection')
-    # print('\t 2) Backward Elimination')
-
-    # algorithmSelection = input('')
-
-    # print(f'\nThis dataset has {numberOfFeatures} features (not including the class attribute), with {numberOfInstances} instances\n')
 
 
 if __name__ == "__main__":
