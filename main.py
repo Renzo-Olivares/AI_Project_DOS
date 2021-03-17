@@ -1,4 +1,5 @@
 from feature_search import feature_search
+from feature_search import leave_one_out_cross_validation
 
 def main():
     print("Welcome to Renzo's Feature Selection Algorithm.")
@@ -16,16 +17,18 @@ def main():
 
     rawData.close()
     # End of data load
+    print(f'\nThis dataset has {numberOfFeatures} features (not including the class attribute), with {numberOfInstances} instances\n')
 
     feature_search(testSet)
+    # leave_one_out_cross_validation(testSet, [], [])
 
-    print('\nType the number of the algorithm you want to run.')
-    print('\t 1) Forward Selection')
-    print('\t 2) Backward Elimination')
+    # print('\nType the number of the algorithm you want to run.')
+    # print('\t 1) Forward Selection')
+    # print('\t 2) Backward Elimination')
 
-    algorithmSelection = input('')
+    # algorithmSelection = input('')
 
-    print(f'\nThis dataset has {numberOfFeatures} features (not including the class attribute), with {numberOfInstances} instances\n')
+    # print(f'\nThis dataset has {numberOfFeatures} features (not including the class attribute), with {numberOfInstances} instances\n')
 
 
 if __name__ == "__main__":
