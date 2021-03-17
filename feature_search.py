@@ -1,10 +1,11 @@
 import random
 import math
 import copy
+from collections import OrderedDict
 
 def feature_search(data):
     all_set_of_features = []
-    current_set_of_features = set() # Initialize an empty set
+    current_set_of_features = OrderedDict() # Initialize an empty set
 
     for i in range(1, len(data[0])):
         print(f'On the {i}th level of the search tree')
@@ -17,27 +18,27 @@ def feature_search(data):
         best_so_far_accuracy = 0
 
         for k in range(1,len(data[0])):
-            if k not in current_set_of_features: # Only consider adding, if not already added
+            if k not in list(current_set_of_features.values()): # Only consider adding, if not already added
                 print(f'\t--Considering adding feature {k}')
 
                 trace = open('trace.txt', 'a')
                 trace.write(f'\t--Considering adding feature {k}\n')
                 trace.close()
 
-                accuracy = leave_one_out_cross_validation(data, current_set_of_features, k)
+                accuracy = leave_one_out_cross_validation(data, list(current_set_of_features.values()), k)
 
                 if accuracy > best_so_far_accuracy:
                     best_so_far_accuracy = accuracy
                     feature_to_add_at_this_level = k
         
-        current_set_of_features.add(feature_to_add_at_this_level)
-        all_set_of_features.append((best_so_far_accuracy, list(current_set_of_features)))
+        current_set_of_features[i] = feature_to_add_at_this_level
+        all_set_of_features.append((best_so_far_accuracy, list(current_set_of_features.values())))
 
-        print(f'\tFeature set {list(current_set_of_features)} was best, accuracy is {best_so_far_accuracy * 100}%')
+        print(f'\tFeature set {list(current_set_of_features.values())} was best, accuracy is {best_so_far_accuracy * 100}%')
         print(f'\tOn level {i} I added feature {feature_to_add_at_this_level} to current set\n')
 
         trace = open('trace.txt', 'a')
-        trace.write(f'\tFeature set {list(current_set_of_features)} was best, accuracy is {best_so_far_accuracy * 100}%\n')
+        trace.write(f'\tFeature set {list(current_set_of_features.values())} was best, accuracy is {best_so_far_accuracy * 100}%\n')
         trace.write(f'\tOn level {i} I added feature {feature_to_add_at_this_level} to current set\n\n')
         trace.close()
 
