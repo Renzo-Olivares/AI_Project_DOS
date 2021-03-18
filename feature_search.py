@@ -32,7 +32,7 @@ def forward_search(data):
                 trace.write(f'\t--Considering adding feature {k}\n')
                 trace.close()
 
-                accuracy = leave_one_out_cross_validation(data, list(current_set_of_features.values()), None, k)
+                accuracy = leave_one_out_cross_validation(data, list(current_set_of_features.values()), None, k, True)
 
                 if accuracy > best_so_far_accuracy:
                     best_so_far_accuracy = accuracy
@@ -92,7 +92,7 @@ def backward_search(data):
                 trace.write(f'\t--Considering removing feature {k}\n')
                 trace.close()
 
-                accuracy = leave_one_out_cross_validation(data, list(current_set_of_features.values()), set_of_features_removed, k)
+                accuracy = leave_one_out_cross_validation(data, list(current_set_of_features.values()), set_of_features_removed, k, True)
 
                 if accuracy > best_so_far_accuracy:
                     best_so_far_accuracy = accuracy
@@ -126,7 +126,7 @@ def backward_search(data):
     trace.write(f'Finished search!! The best feature subset is {max(all_set_of_features)[1]}, which has an accuracy of {"{:.2f}".format(max(all_set_of_features)[0])}%\n')
     trace.close() 
 
-def leave_one_out_cross_validation(data,currentFeatureSet, featuresToExclude, featureToAddOrRemove):
+def leave_one_out_cross_validation(data,currentFeatureSet, featuresToExclude, featureToAddOrRemove, logFlag):
     number_correct_classified = 0
     temp_data = copy.deepcopy(data)
 
@@ -168,11 +168,12 @@ def leave_one_out_cross_validation(data,currentFeatureSet, featuresToExclude, fe
 
     accuracy = (number_correct_classified / len(temp_data)) * 100
 
-    print(f'\t\tUsing feature(s) {temp_features} accuracy is {"{:.2f}".format(accuracy)}%')
+    if logFlag is True:
+        print(f'\t\tUsing feature(s) {temp_features} accuracy is {"{:.2f}".format(accuracy)}%')
 
-    trace = open('trace.txt', 'a')
-    trace.write(f'\t\tUsing feature(s) {temp_features} accuracy is {"{:.2f}".format(accuracy)}%\n')
-    trace.close()
+        trace = open('trace.txt', 'a')
+        trace.write(f'\t\tUsing feature(s) {temp_features} accuracy is {"{:.2f}".format(accuracy)}%\n')
+        trace.close()
     
     return accuracy
 

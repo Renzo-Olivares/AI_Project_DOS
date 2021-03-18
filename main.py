@@ -1,4 +1,5 @@
 from feature_search import feature_search
+from feature_search import leave_one_out_cross_validation
 import timeit
 
 def main():
@@ -38,11 +39,26 @@ def main():
 
     print(f'\nThis dataset has {numberOfFeatures} features (not including the class attribute), with {numberOfInstances} instances\n')
 
+    default_rate = 0
+
+    if algorithmSelection == '2':
+        default_rate = leave_one_out_cross_validation(testSet, [x for x in range(1,numberOfFeatures+1)], None, None, False)
+    else:
+        default_rate = leave_one_out_cross_validation(testSet, [], None, None, False)
+
     trace.write(f'{algorithmSelection}\n')
     trace.write(f'\nThis dataset has {numberOfFeatures} features (not including the class attribute), with {numberOfInstances} instances\n\n')
+    if algorithmSelection == '2':
+        trace.write(f'Running the nearest neighbor with all {numberOfFeatures} features, I get an accuracy of {"{:.2f}".format(default_rate)}%\n\n')
+    else:
+        trace.write(f'Running the nearest neighbor with no features, I get an accuracy of {"{:.2f}".format(default_rate)}%\n\n')
     trace.write('Beginning search.\n\n')
     trace.close()
 
+    if algorithmSelection == '2':
+        print(f'Running the nearest neighbor with all {numberOfFeatures} features, I get an accuracy of {"{:.2f}".format(default_rate)}%\n')
+    else:
+        print(f'Running the nearest neighbor with no features, I get an accuracy of {"{:.2f}".format(default_rate)}%\n')
     print('Beginning search.\n')
     start = timeit.default_timer()
     feature_search(testSet, int(algorithmSelection))
