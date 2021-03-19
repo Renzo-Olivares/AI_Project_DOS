@@ -1,0 +1,175 @@
+Welcome to Renzo's Feature Selection Algorithm.
+Type in the name of the file to test: CS170_SMALLtestdata__24.txt
+
+Type the number of the algorithm you want to run.
+	 1) Forward Selection
+	 2) Backward Elimination
+
+1
+
+This dataset has 10 features (not including the class attribute), with 300 instances
+
+Running the nearest neighbor with no features, I get an accuracy of 84.00%
+
+Beginning search.
+
+On the 1th level of the search tree
+	--Considering adding feature 1
+		Using feature(s) [1] accuracy is 69.67%
+	--Considering adding feature 2
+		Using feature(s) [2] accuracy is 79.00%
+	--Considering adding feature 3
+		Using feature(s) [3] accuracy is 69.67%
+	--Considering adding feature 4
+		Using feature(s) [4] accuracy is 74.33%
+	--Considering adding feature 5
+		Using feature(s) [5] accuracy is 78.67%
+	--Considering adding feature 6
+		Using feature(s) [6] accuracy is 71.00%
+	--Considering adding feature 7
+		Using feature(s) [7] accuracy is 86.67%
+	--Considering adding feature 8
+		Using feature(s) [8] accuracy is 72.67%
+	--Considering adding feature 9
+		Using feature(s) [9] accuracy is 73.00%
+	--Considering adding feature 10
+		Using feature(s) [10] accuracy is 72.33%
+	Feature set [7] was best, accuracy is 86.67%
+	On level 1 I added feature 7 to current set
+
+On the 2th level of the search tree
+	--Considering adding feature 1
+		Using feature(s) [7, 1] accuracy is 80.33%
+	--Considering adding feature 2
+		Using feature(s) [7, 2] accuracy is 87.67%
+	--Considering adding feature 3
+		Using feature(s) [7, 3] accuracy is 84.33%
+	--Considering adding feature 4
+		Using feature(s) [7, 4] accuracy is 86.00%
+	--Considering adding feature 5
+		Using feature(s) [7, 5] accuracy is 94.00%
+	--Considering adding feature 6
+		Using feature(s) [7, 6] accuracy is 81.00%
+	--Considering adding feature 8
+		Using feature(s) [7, 8] accuracy is 87.00%
+	--Considering adding feature 9
+		Using feature(s) [7, 9] accuracy is 79.67%
+	--Considering adding feature 10
+		Using feature(s) [7, 10] accuracy is 84.33%
+	Feature set [7, 5] was best, accuracy is 94.00%
+	On level 2 I added feature 5 to current set
+
+On the 3th level of the search tree
+	--Considering adding feature 1
+		Using feature(s) [7, 5, 1] accuracy is 90.33%
+	--Considering adding feature 2
+		Using feature(s) [7, 5, 2] accuracy is 92.33%
+	--Considering adding feature 3
+		Using feature(s) [7, 5, 3] accuracy is 90.00%
+	--Considering adding feature 4
+		Using feature(s) [7, 5, 4] accuracy is 89.33%
+	--Considering adding feature 6
+		Using feature(s) [7, 5, 6] accuracy is 90.33%
+	--Considering adding feature 8
+		Using feature(s) [7, 5, 8] accuracy is 89.67%
+	--Considering adding feature 9
+		Using feature(s) [7, 5, 9] accuracy is 87.00%
+	--Considering adding feature 10
+		Using feature(s) [7, 5, 10] accuracy is 89.00%
+	(Warning, Accuracy has decreased! Continuing search in case of local maxima)
+	Feature set [7, 5, 2] was best, accuracy is 92.33%
+	On level 3 I added feature 2 to current set
+
+On the 4th level of the search tree
+	--Considering adding feature 1
+		Using feature(s) [7, 5, 2, 1] accuracy is 87.00%
+	--Considering adding feature 3
+		Using feature(s) [7, 5, 2, 3] accuracy is 88.33%
+	--Considering adding feature 4
+		Using feature(s) [7, 5, 2, 4] accuracy is 91.33%
+	--Considering adding feature 6
+		Using feature(s) [7, 5, 2, 6] accuracy is 88.00%
+	--Considering adding feature 8
+		Using feature(s) [7, 5, 2, 8] accuracy is 87.33%
+	--Considering adding feature 9
+		Using feature(s) [7, 5, 2, 9] accuracy is 84.33%
+	--Considering adding feature 10
+		Using feature(s) [7, 5, 2, 10] accuracy is 87.67%
+	(Warning, Accuracy has decreased! Continuing search in case of local maxima)
+	Feature set [7, 5, 2, 4] was best, accuracy is 91.33%
+	On level 4 I added feature 4 to current set
+
+On the 5th level of the search tree
+	--Considering adding feature 1
+		Using feature(s) [7, 5, 2, 4, 1] accuracy is 86.00%
+	--Considering adding feature 3
+		Using feature(s) [7, 5, 2, 4, 3] accuracy is 84.67%
+	--Considering adding feature 6
+		Using feature(s) [7, 5, 2, 4, 6] accuracy is 86.67%
+	--Considering adding feature 8
+		Using feature(s) [7, 5, 2, 4, 8] accuracy is 86.33%
+	--Considering adding feature 9
+		Using feature(s) [7, 5, 2, 4, 9] accuracy is 85.33%
+	--Considering adding feature 10
+		Using feature(s) [7, 5, 2, 4, 10] accuracy is 85.00%
+	(Warning, Accuracy has decreased! Continuing search in case of local maxima)
+	Feature set [7, 5, 2, 4, 6] was best, accuracy is 86.67%
+	On level 5 I added feature 6 to current set
+
+On the 6th level of the search tree
+	--Considering adding feature 1
+		Using feature(s) [7, 5, 2, 4, 6, 1] accuracy is 82.33%
+	--Considering adding feature 3
+		Using feature(s) [7, 5, 2, 4, 6, 3] accuracy is 81.00%
+	--Considering adding feature 8
+		Using feature(s) [7, 5, 2, 4, 6, 8] accuracy is 83.67%
+	--Considering adding feature 9
+		Using feature(s) [7, 5, 2, 4, 6, 9] accuracy is 79.67%
+	--Considering adding feature 10
+		Using feature(s) [7, 5, 2, 4, 6, 10] accuracy is 81.00%
+	(Warning, Accuracy has decreased! Continuing search in case of local maxima)
+	Feature set [7, 5, 2, 4, 6, 8] was best, accuracy is 83.67%
+	On level 6 I added feature 8 to current set
+
+On the 7th level of the search tree
+	--Considering adding feature 1
+		Using feature(s) [7, 5, 2, 4, 6, 8, 1] accuracy is 79.33%
+	--Considering adding feature 3
+		Using feature(s) [7, 5, 2, 4, 6, 8, 3] accuracy is 80.33%
+	--Considering adding feature 9
+		Using feature(s) [7, 5, 2, 4, 6, 8, 9] accuracy is 79.00%
+	--Considering adding feature 10
+		Using feature(s) [7, 5, 2, 4, 6, 8, 10] accuracy is 82.00%
+	(Warning, Accuracy has decreased! Continuing search in case of local maxima)
+	Feature set [7, 5, 2, 4, 6, 8, 10] was best, accuracy is 82.00%
+	On level 7 I added feature 10 to current set
+
+On the 8th level of the search tree
+	--Considering adding feature 1
+		Using feature(s) [7, 5, 2, 4, 6, 8, 10, 1] accuracy is 77.33%
+	--Considering adding feature 3
+		Using feature(s) [7, 5, 2, 4, 6, 8, 10, 3] accuracy is 78.67%
+	--Considering adding feature 9
+		Using feature(s) [7, 5, 2, 4, 6, 8, 10, 9] accuracy is 77.33%
+	(Warning, Accuracy has decreased! Continuing search in case of local maxima)
+	Feature set [7, 5, 2, 4, 6, 8, 10, 3] was best, accuracy is 78.67%
+	On level 8 I added feature 3 to current set
+
+On the 9th level of the search tree
+	--Considering adding feature 1
+		Using feature(s) [7, 5, 2, 4, 6, 8, 10, 3, 1] accuracy is 76.67%
+	--Considering adding feature 9
+		Using feature(s) [7, 5, 2, 4, 6, 8, 10, 3, 9] accuracy is 74.67%
+	(Warning, Accuracy has decreased! Continuing search in case of local maxima)
+	Feature set [7, 5, 2, 4, 6, 8, 10, 3, 1] was best, accuracy is 76.67%
+	On level 9 I added feature 1 to current set
+
+On the 10th level of the search tree
+	--Considering adding feature 9
+		Using feature(s) [7, 5, 2, 4, 6, 8, 10, 3, 1, 9] accuracy is 73.00%
+	(Warning, Accuracy has decreased! Continuing search in case of local maxima)
+	Feature set [7, 5, 2, 4, 6, 8, 10, 3, 1, 9] was best, accuracy is 73.00%
+	On level 10 I added feature 9 to current set
+
+Finished search!! The best feature subset is [7, 5], which has an accuracy of 94.00%
+Execution Time: 11.577392534003593s

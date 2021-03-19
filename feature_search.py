@@ -85,7 +85,7 @@ def backward_search(data):
         best_so_far_accuracy = 0
 
         for k in range(1,len(data[0])):
-            if k not in set_of_features_removed: # Only consider remvoing, if not already removed
+            if k not in set_of_features_removed: # Only consider removing, if not already removed
                 print(f'\t--Considering removing feature {k}')
 
                 trace = open('trace.txt', 'a')
@@ -136,7 +136,7 @@ def leave_one_out_cross_validation(data,currentFeatureSet, featuresToExclude, fe
                 if (j not in currentFeatureSet and j is not featureToAddOrRemove) and j != 0:
                     temp_data[i][j] = 0
     else:
-        for i in range(len(temp_data)): # Exclude anything not in our excluded features or our feature being removed
+        for i in range(len(temp_data)): # Exclude in our excluded features or feature being removed
             for j in range(len(temp_data[0])):
                 if (j in featuresToExclude or j is featureToAddOrRemove) and j != 0:
                     temp_data[i][j] = 0
